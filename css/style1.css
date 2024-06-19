@@ -1,0 +1,208 @@
+/* Ensure that the entire document and body take up the full viewport */
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden; /* Prevents scrolling */
+}
+
+/* Make sure the container also takes up the full viewport */
+.bgc {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden; /* Ensures no content overflows */
+}
+
+/* Style the image to cover the entire viewport */
+.bgc img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures the image covers the entire area while maintaining aspect ratio */
+    transform: translate(-50%, -50%);
+}
+
+/* Center the content container using flexbox */
+.body {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    pointer-events: none; /* Prevents interaction with the content */
+}
+#board {
+    height: 50vmin;
+    width: 80vmin;
+    display: grid;
+    border: solid #fff;
+    position: relative;
+    right: 150px;
+    bottom: 25px;
+}
+
+#scoreBox {
+    position: absolute;
+    top: 120px;
+    right: 310px;
+    font-size: 39px;
+    font-weight: bold;
+    color: #fff;
+    font-family: 'New Tegomin', serif;
+}
+
+#hiscoreBox {
+    position: absolute;
+    top: 90px;
+    right: 310px;
+    font-size: 39px;
+    color: #fff;
+    font-weight: bold;
+    font-family: 'New Tegomin', serif;
+}
+
+.food {
+    background: linear-gradient(red, purple);
+    border: .25vmin solid white;
+    border-radius: 8px;
+}
+
+.snake {
+    background-color: purple;
+    border: .25vmin solid white;
+    border-radius: 12px;
+}
+
+.head {
+    background: linear-gradient(rgb(240, 124, 124), rgb(228, 228, 129));
+    border: 2px solid rgb(34, 4, 34); 
+    transform: scale(1.02);
+    border-radius: 9px;
+}
+
+/* Position the content over the background image */
+/*  */
+
+/* Style for score and high score boxes
+#scoreBox, #hiscoreBox {
+    font-size: 24px;
+    font-weight: bold;
+    color: #fff;
+    font-family: 'Arial', sans-serif;
+    margin: 15 0 10px 10px; /* Adjust margins as needed 
+}*/
+/*
+#scoreBox {
+    margin-top: 24px; /* Adjust top margin as needed 
+} */
+
+/* Media query for landscape orientation */
+@media (orientation: landscape) {
+    .bgc img {
+        width: 100vw;
+        height: auto;
+    }
+}
+
+/* Media query for portrait orientation */
+@media (orientation: portrait) {
+    .bgc img {
+        width: auto;
+        height: 100vh;
+    }
+}
+
+/* Media query for small screens, e.g., smartphones */
+@media (max-width: 768px) {
+    .bgc img {
+        width: 100vw;
+        height: auto;
+    }
+}
+
+/* Media query for iPhones in portrait mode */
+@media screen and (max-device-width: 812px) and (orientation: portrait) {
+    .bgc img {
+        width: 100vw;
+        height: auto;
+    }
+}
+
+/* Media query for iPhones in landscape mode */
+@media screen and (max-device-width: 812px) and (orientation: landscape) {
+    .bgc img {
+        width: auto;
+        height: 100vh;
+    }
+}
+
+
+
+
+/* Media query for tablets and smaller screens */
+@media (max-width: 992px) {
+   
+    #board {
+        height: 40vmin;
+        width: 70vmin;
+        right: 0;
+        bottom: 0;
+        border: solid #fff;
+    }
+
+    #scoreBox, #hiscoreBox {
+        right: auto;
+        left: 70px;
+    }
+
+    #scoreBox {
+        top: 20px;
+        font-size: 30px;
+    }
+
+    #hiscoreBox {
+        top: 60px;
+        font-size: 30px;
+    }
+}
+
+/* Media query for smartphones and smaller screens */
+@media   (max-width: 768px  ) and (min-width : 300px) {
+    
+    
+
+    #board {
+        height: 30vmin;
+        width: 60vmin;
+        right: 0;
+        bottom: 0;
+        border: solid #fff;
+    }
+
+    #scoreBox, #hiscoreBox {
+        right: auto;
+        left: 100px;
+    }
+
+    #scoreBox {
+        top: 10px;
+        font-size: 25px;
+    }
+
+    #hiscoreBox {
+        top: 40px;
+        font-size: 25px;
+    }
+}
+
+
+
+
